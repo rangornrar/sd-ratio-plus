@@ -1,3 +1,4 @@
+
 import gradio as gr
 from modules import script_callbacks
 
@@ -12,8 +13,7 @@ ASPECT_RATIOS = {
 }
 
 def render_aspect_ratio_ui():
-    with gr.Blocks() as demo:
-        gr.Markdown("## Aspect Ratio Helper")
+    with gr.Column():
         ratio_dropdown = gr.Dropdown(
             choices=list(ASPECT_RATIOS.keys()),
             label="Aspect Ratio",
@@ -28,6 +28,14 @@ def render_aspect_ratio_ui():
             height_input = gr.Number(label="Hauteur (px)", value=384, elem_id="height_input")
 
         round_to_64 = gr.Checkbox(label="Arrondir à un multiple de 64", value=True, elem_id="round_to_64")
-    return demo
 
-script_callbacks.on_ui_tabs(lambda: ("Aspect Ratio", render_aspect_ratio_ui(), "aspect_ratio_helper_tab"))
+    return [ratio_dropdown, lock_checkbox, use_height_as_base, width_input, height_input, round_to_64]
+
+def add_to_txt2img():
+    return render_aspect_ratio_ui()
+
+def add_to_img2img():
+    return render_aspect_ratio_ui()
+
+script_callbacks.on_ui_component("txt2img_dimensions", add_to_txt2img)
+script_callbacks.on_ui_component("img2img_dimensions", add_to_img2img)
