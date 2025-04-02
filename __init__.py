@@ -1,3 +1,4 @@
+# sd-aspect-ratio-helper/__init__.py
 
 import gradio as gr
 from modules import script_callbacks
@@ -31,11 +32,11 @@ def render_aspect_ratio_ui():
 
     return [ratio_dropdown, lock_checkbox, use_height_as_base, width_input, height_input, round_to_64]
 
-def add_to_txt2img():
+def add_to_txt2img(component, **kwargs):
     return render_aspect_ratio_ui()
 
-def add_to_img2img():
+def add_to_img2img(component, **kwargs):
     return render_aspect_ratio_ui()
 
-script_callbacks.on_ui_component("txt2img_dimensions", add_to_txt2img)
-script_callbacks.on_ui_component("img2img_dimensions", add_to_img2img)
+script_callbacks.on_after_component("txt2img_dimensions", add_to_txt2img)
+script_callbacks.on_after_component("img2img_dimensions", add_to_img2img)
