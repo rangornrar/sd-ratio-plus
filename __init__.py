@@ -11,8 +11,9 @@ ASPECT_RATIOS = {
     "Personnalisé": None
 }
 
-def on_ui_settings():
-    with gr.Accordion("Aspect Ratio Helper", open=False):
+def render_aspect_ratio_ui():
+    with gr.Blocks() as demo:
+        gr.Markdown("## Aspect Ratio Helper")
         ratio_dropdown = gr.Dropdown(
             choices=list(ASPECT_RATIOS.keys()),
             label="Aspect Ratio",
@@ -27,5 +28,6 @@ def on_ui_settings():
             height_input = gr.Number(label="Hauteur (px)", value=384, elem_id="height_input")
 
         round_to_64 = gr.Checkbox(label="Arrondir à un multiple de 64", value=True, elem_id="round_to_64")
+    return demo
 
-script_callbacks.on_ui_settings(on_ui_settings)
+script_callbacks.on_ui_tabs(lambda: ("Aspect Ratio", render_aspect_ratio_ui(), "aspect_ratio_helper_tab"))

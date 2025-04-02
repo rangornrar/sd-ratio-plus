@@ -10,15 +10,12 @@ Une extension pour [AUTOMATIC1111 WebUI](https://github.com/AUTOMATIC1111/stable
 
 ## 📦 Installation
 
-1. Cloner ce dépôt dans le dossier `extensions/` :
+1. Extraire ce dossier dans `extensions/` :
 ```bash
-git clone https://github.com/votre-utilisateur/sd-aspect-ratio-helper extensions/sd-aspect-ratio-helper
+cd stable-diffusion-webui/extensions/
+unzip sd-aspect-ratio-helper.zip
 ```
 
 2. Redémarrer l’interface Web.
 
 ## ✅ Aucun package supplémentaire requis
-
-## 📌 À faire
-- Intégration directe dans les onglets txt2img / img2img
-- Personnalisation des ratios utilisateur
