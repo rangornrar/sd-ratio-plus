@@ -38,4 +38,7 @@
 
 ## 📦 Installation
 
-1. Copiez ce dossier dans les extensions
+1. Dans les extensions d’AUTOMATIC1111, installer depuis l’URL `https://github.com/rangornrar/sd-ratio-plus.git`, ou cloner le dépôt dans le dossier `extensions/`.
+2. Redémarrer la WebUI, puis ouvrir l’onglet `txt2img`.
+
+Compatibilité : la présence de ce code ne garantit pas sa compatibilité avec toutes les versions de la WebUI ; vérifier sur la version utilisée.
